@@ -15,6 +15,10 @@ module.exports = {
         darkblue: "#0d084d",
         clientBg: "#fafafa",
       },
+      screens: {
+        laptop: "1136px",
+        tab: "900px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

@@ -11,11 +11,12 @@ import Business from "@/components/HomeComponents/Business";
 import Testimony from "@/components/HomeComponents/Testimony";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer/Footer";
+import Layout from "@/components/Layout/Layout";
 
 const Home = () => {
   return (
     <div className="">
-      <Navbar />
+      <Layout>
       {/* Hero Section */}
       <Hero />
       <TrustedBy />
@@ -45,7 +46,7 @@ const Home = () => {
           <Projects item={item} key={i} />
         ))}
       </Slides>
-      <Footer />
+      </Layout>
     </div>
   );
 };
