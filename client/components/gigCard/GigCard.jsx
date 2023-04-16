@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { BsFillHeartFill, BsStarFill } from 'react-icons/bs'
@@ -9,7 +10,7 @@ const GigCard = ({ item }) => {
       href="/gigs/123"
       className="w-full shadow-box flex items-start flex-col justify-start border group"
     >
-      <img
+      <Image
         src={item?.img}
         alt={item?.username}
         className="w-full object-cover h-[200px]"
@@ -17,7 +18,7 @@ const GigCard = ({ item }) => {
       <div className="w-full bg-white pt-5 flex items-start flex-col gap-3 justify-start">
         <div className="flex items-center justify-start gap-3 px-4">
         <div className="w-8 h-8">
-                <img
+                <Image
                   src={item?.img }
                   alt={item?.username}
                   className="w-full h-full object-cover rounded-full"

@@ -1,4 +1,5 @@
 import Layout from '@/components/Layout/Layout'
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
@@ -78,7 +79,7 @@ const Message = () => {
             
           {data?.length === 0 ? (
                   <div className="flex items-center justify-center mt-5 flex-col w-full">
-                    <img
+                    <Image
                       src="https://cdni.iconscout.com/illustration/premium/thumb/error-404-4344461-3613889.png"
                       alt="/"
                       className="w-[350px]"
@@ -98,7 +99,7 @@ const Message = () => {
                             : ""
                         }`}
                       >
-                        <img
+                        <Image
                           src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/c51dbf5c160dac9bd067442911e65d16-1626181910196/Miscellaneous_2x.png"
                           alt="sender_img"
                           className="w-10 h-10 object-cover rounded-full border"

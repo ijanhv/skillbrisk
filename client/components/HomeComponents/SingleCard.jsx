@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const SingleCard = ({ item }) => {
   return (
@@ -7,7 +8,7 @@ const SingleCard = ({ item }) => {
       href={`/gigs?cat=${item.cat}`}
       className="relative inline-block cursor-pointer w-[300px] md:w-[240px] lg:w-[250px] mx-4"
     >
-      <img
+      <Image
         src={item.img}
         alt={item.title}
         

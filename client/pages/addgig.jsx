@@ -2,6 +2,7 @@ import Layout from '@/components/Layout/Layout'
 import React, { useState } from 'react'
 import { BsUpload } from 'react-icons/bs'
 import { options } from '../assets/data'
+import Image from 'next/image'
 
 const AddGig = () => {
   const [singleFile, setSingleFile] = useState(undefined);
@@ -77,7 +78,7 @@ const AddGig = () => {
                 <div className="flex justify-center items-center flex-col gap-3 w-full border h-[136px] rounded-md text-sm text-gray-600 border-gray-300">
                   {singleFile?.type?.startsWith("image/") ? (
                     <div className="flex items-center justify-center gap-2">
-                      <img
+                      <Image
                         src={URL.createObjectURL(singleFile)}
                         alt={singleFile.name}
                         className="w-[100px] h-[100px] rounded-full border-2 border-primary object-cover"

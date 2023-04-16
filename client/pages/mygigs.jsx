@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout/Layout";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { BsTrash } from "react-icons/bs";
@@ -78,7 +79,7 @@ const MyGigs = () => {
                       className="text-sm leading-5 w-full even:bg-gray-200"
                     >
                       <td className="first:text-left text-sm text-darkColor font-medium text-center py-2">
-                        <img src={row.Image} alt={row.Title} className="w-10"/>
+                        <Image src={row.Image} alt={row.Title} className="w-10"/>
                       </td>
                       <td className="first:text-left text-sm text-darkColor font-medium text-center py-2">
                         {row.Title}

@@ -2,6 +2,7 @@ import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
 import Slides from '../Slides/Slides'
 import Reviews from '../Reviews/Reviews'
+import Image from 'next/image'
 
 const images = [
     "https://thumbor.forbes.com/thumbor/fit-in/x/https://www.forbes.com/advisor/wp-content/uploads/2022/03/How-To-Build-A-Website-For-Free-3.png",
@@ -30,7 +31,7 @@ const GigDetails = ({ }) => {
       </h1>
       <div className="flex items-center justify-start gap-3 w-full">
         <div className="flex items-center justify-start gap-3">
-          <img
+          <Image
             src="https://static.wixstatic.com/media/ea6ac8_b6b0cbe25615488e855f515846354dda~mv2.jpg/v1/fill/w_640,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/ea6ac8_b6b0cbe25615488e855f515846354dda~mv2.jpg"
             alt="website"
             className="w-8 h-8 border rounded-full"
@@ -71,7 +72,7 @@ const GigDetails = ({ }) => {
               className="relative inline-block cursor-pointer w-full mx-4 shadow-box bg-gray-200"
             >
               <div className="w-full h-full">
-                <img
+                <Image
                   src={item}
                   alt={item}
                   className="w-full h-full object-cover"
@@ -91,7 +92,7 @@ const GigDetails = ({ }) => {
           About The Seller
         </h2>
         <div className="flex items-start justify-start gap-3 w-full">
-          <img
+          <Image
             src="https://help.apple.com/assets/63B87829CE32D578D65A85E4/63B8782ACE32D578D65A85EB/en_US/dbb0631358aad57b8b57484c2a476c7e.png"
             alt=""
             className="w-20 h-20 border rounded-full"

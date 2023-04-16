@@ -8,6 +8,7 @@ import { FaBars } from "react-icons/fa";
 import { TfiWorld } from "react-icons/tfi";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FiChevronRight } from "react-icons/fi";
+import Image from "next/image";
 
 const Navbar = () => {
   const [navBackground, setNavBackground] = useState("");
@@ -159,7 +160,7 @@ const Navbar = () => {
                     className="relative flex flex-col sm:flex-row items-center sm:gap-4 cursor-pointer"
                     onClick={() => setOpenDrop((prev) => !prev)}
                   >
-                    <img
+                    <Image
                       src={authUser.img}
                       alt="user_image"
                       className="w-[32px] h-[32px] rounded-[50%] object-cover"
