@@ -96,13 +96,14 @@ const Navbar = () => {
     };
   }, []);
 
-  const authUser = {
-    id: 1,
-    username: "John doe",
-    isSeller: true,
-    img: "https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg",
-  }
+  // const authUser = {
+  //   id: 1,
+  //   username: "John doe",
+  //   isSeller: true,
+  //   img: "https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg",
+  // }
 
+  const authUser = null
 
 
   return (
@@ -133,7 +134,7 @@ const Navbar = () => {
           </div>
           <nav className="flex items-center justify-end gap-7 font-medium text-base">
             <Link href="/" className="cursor-pointer hidden lg:flex">
-              Fiverr Business
+              SkillBrisk Business
             </Link>
             <div className="cursor-pointer hidden lg:flex">Explore</div>
             <div className="items-center gap-2 cursor-pointer hidden lg:flex">
@@ -173,13 +174,13 @@ const Navbar = () => {
                       {authUser?.isSeller && (
                         <>
                           <Link
-                            href="/myGigs"
+                            href="/mygigs"
                             className="cursor-pointer w-full text-sm text-darkColor"
                           >
                             Gigs
                           </Link>
                           <Link
-                            href="/add"
+                            href="/addgig"
                             className="cursor-pointer w-full text-sm text-darkColor"
                           >
                             Add New Gigs

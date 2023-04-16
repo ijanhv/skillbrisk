@@ -1,13 +1,34 @@
 import React, { useRef, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import axios from "axios";
 
 
 const Login = ({ show, setShow }) => {
-  const [loading, setLoading] = useState(false);
+  const [ username, setUsername ] = useState('')
+  const [ password, setPassword ] = useState('')
+  const [ errors, setErrors ] = useState(null)
+
   const modalRef = useRef(null);
 
-  const handleSubmit = () => {
-
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      const res = await axios.post('http://localhost:8800/api/auth/login', {
+        username,
+        password
+      }, 
+      {
+        withCredentials: true
+      }
+      )
+  
+      console.log(res.data)
+    } catch (error) {
+      console.log(error)
+      setErrors(error)
+    }
+    
   }
 
   return (
@@ -30,24 +51,43 @@ const Login = ({ show, setShow }) => {
             <form 
             onSubmit={handleSubmit}
             className="">
-            {/* <CustomizeInput
-              showLabel={false}
+      
+            <input
               htmlFor="username"
-              label="Username"
-              labelClassName="text-sm font-medium text-darkColor"
-              type="text"
-              name="username"
-            //   value={values.username}
-            //   onChange={handleChange}
-              onBlur={handleBlur}
-              error={getError("username")}
+              label="username"
               id="username"
-              placeholder="Johndoe"
+              placeholder="username"
+              className="bg-white  border border-[#C7CBD1] my-10 w-full h-[40px] rounded px-4 focus:border-[1.5px] focus:border-primary outline-none text-sm"
+              onChange={(e) =>  setUsername(e.target.value) }
+            />
+            <input
+              htmlFor="password"      
+              label="password"
+              id="password"
+              placeholder="password"
               className="bg-white  border border-[#C7CBD1] w-full h-[40px] rounded px-4 focus:border-[1.5px] focus:border-primary outline-none text-sm"
-            /> */}
+              onChange={(e) =>  setPassword(e.target.value)}
+            />
+
+            <button
+              type="submit"
+              className="w-full h-[40px] bg-primary text-white rounded-lg mt-4 text-sm font-medium"
+            >
+              Sign In
+            </button>
+
 
 
             </form>
+            <div
+            onClick={() => setShow(false)}
+            className="w-full border-t absolute bottom-0 py-4 bg-white z-10 px-8 flex items-center justify-center text-sm font-semibold text-darkColor gap-2"
+          >
+            Not a member yet?
+            <Link href="/register" className="text-primary">
+              Join now
+            </Link>
+          </div>
             </motion.div>
         </div>
 
