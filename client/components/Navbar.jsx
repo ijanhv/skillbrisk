@@ -21,6 +21,12 @@ const Navbar = () => {
   const modalRef = useRef(null);
   const router = useRouter()
   const { pathname } = router
+
+  let currentUser = null;
+  if (typeof window !== "undefined") {
+    currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  }
+  console.log(currentUser)
   
   const links = [
     "Graphics & Design",
@@ -33,6 +39,7 @@ const Navbar = () => {
     "Lifestyle",
     "AI Services",
   ];
+
 
 
   const toggleMenu = () => {
@@ -104,7 +111,7 @@ const Navbar = () => {
   //   img: "https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg",
   // }
 
-  const authUser = null
+  // const authUser = null
 
 
   return (
@@ -150,29 +157,31 @@ const Navbar = () => {
               </span>
               USD
             </span>
-            {!authUser?.isSeller && (
+            {!currentUser?.isSeller && (
               <p className="cursor-pointer hidden lg:flex">Become a Seller</p>
             )}
-            {authUser ? (
+            {currentUser ? (
               <>
-                {authUser && (
+                {currentUser && (
                   <div
                     className="relative flex flex-col sm:flex-row items-center sm:gap-4 cursor-pointer"
                     onClick={() => setOpenDrop((prev) => !prev)}
                   >
                     <Image
-                      src={authUser.img}
+                      width={32}
+                      height={32}
+                      src={currentUser.img || "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745"}
                       alt="user_image"
                       className="w-[32px] h-[32px] rounded-[50%] object-cover"
                     />
-                    <span>{authUser?.username}</span>
+                    <span>{currentUser?.username}</span>
                     <div
                       ref={modalRef}
                       className={`absolute top-12 right-0 p-3 z-10 bg-white border rounded-md text-black flex-col items-start gap-3 w-[200px] font-medium transition-transform duration-300 ${
                         openDrop ? "flex" : "hidden"
                       }`}
                     >
-                      {authUser?.isSeller && (
+                      {currentUser?.isSeller && (
                         <>
                           <Link
                             href="/mygigs"

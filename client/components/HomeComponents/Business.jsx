@@ -44,7 +44,7 @@ const Business = () => {
               href="/"
               className="w-fit bg-primary py-2 px-5 text-base font-semibold rounded mt-8 transition-all hover:bg-primary/75"
             >
-              Explore Fiverr Business
+              Explore SkillBrisk Business
             </Link>
           </div>
           <div className="flex-1">

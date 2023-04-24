@@ -35,10 +35,11 @@ const Slides = ({ children, rowId, text, distance }) => {
               size={40}
               className="bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
             />
-<div id={"slider" + rowId} className="w-full h-full overflow-x-scroll whitespace-nowrap relative" style={{scrollbarWidth: "none", msOverflowStyle: "none"}}>
-
-              {children}
-            </div>
+             <div id={"slider" + rowId}
+              style={{ WebkitOverflowScrolling: "touch" }}
+             className="w-full h-full overflow-x-scroll whitespace-nowrap relative">
+                {children}
+              </div>
             <MdChevronRight
               onClick={slideRight}
               size={40}
@@ -47,6 +48,11 @@ const Slides = ({ children, rowId, text, distance }) => {
           </div>
         </div>
       </div>
+      <style jsx>{`
+    #slider${rowId}::-webkit-scrollbar {
+      display: none; // hide the scrollbar
+    }
+  `}</style>
     </section>
   );
 };

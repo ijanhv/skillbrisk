@@ -10,6 +10,14 @@
   margin: 0 auto;
 }
 
+body::-webkit-scrollbar {
+  display: none !important;
+}
+
+
+
+
+
 .overflow-hiddens {
   overflow: hidden!;
 }

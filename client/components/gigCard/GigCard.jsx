@@ -11,6 +11,9 @@ const GigCard = ({ item }) => {
       className="w-full shadow-box flex items-start flex-col justify-start border group"
     >
       <Image
+
+        width={320}
+        height={240}
         src={item?.img}
         alt={item?.username}
         className="w-full object-cover h-[200px]"
@@ -19,6 +22,8 @@ const GigCard = ({ item }) => {
         <div className="flex items-center justify-start gap-3 px-4">
         <div className="w-8 h-8">
                 <Image
+                  width={32}
+                  height={32}
                   src={item?.img }
                   alt={item?.username}
                   className="w-full h-full object-cover rounded-full"

@@ -1,32 +1,38 @@
 import React, { useRef, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import axios from "axios";
+import newRequest from "@/utils/newRequest";
+import 'react-toastify/dist/ReactToastify.css';
+import CustomToast from "../Toast/showToast";
+import { useRouter } from "next/router";
+
 
 
 const Login = ({ show, setShow }) => {
   const [ username, setUsername ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ errors, setErrors ] = useState(null)
+  const [showToast, setShowToast] = useState(false);
+
+  const router = useRouter()
+
 
   const modalRef = useRef(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const res = await axios.post('http://localhost:8800/api/auth/login', {
+      const res = await newRequest.post("auth/login", {
         username,
         password
-      }, 
-      {
-        withCredentials: true
-      }
-      )
-  
-      console.log(res.data)
+      })
+      localStorage.setItem("currentUser", JSON.stringify(res.data));
+      router.reload()
+      
     } catch (error) {
-      console.log(error)
       setErrors(error)
+      setShowToast(true);
+      console.log(error.response.data)
     }
     
   }
@@ -68,10 +74,22 @@ const Login = ({ show, setShow }) => {
               className="bg-white  border border-[#C7CBD1] w-full h-[40px] rounded px-4 focus:border-[1.5px] focus:border-primary outline-none text-sm"
               onChange={(e) =>  setPassword(e.target.value)}
             />
+           {showToast && (
+            <CustomToast
+              message={
+                errors
+                  ? errors.response.data
+                  : "Login Successful"
+              }
+              type={errors ? "error" : "success"}
+              setShowToast={setShowToast}
+            />
+          )}
 
             <button
               type="submit"
-              className="w-full h-[40px] bg-primary text-white rounded-lg mt-4 text-sm font-medium"
+              className="w-full h-[40px] bg-primary text-white rounded-lg mt-4 text-sm font-semibold
+              hover:bg-green-600 transition-all duration-300"
             >
               Sign In
             </button>

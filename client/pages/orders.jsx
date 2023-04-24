@@ -91,7 +91,10 @@ const MyOrders = () => {
                       className="text-sm leading-5 w-full even:bg-gray-200"
                     >
                       <td className="first:text-left text-sm text-darkColor font-medium items-center py-2">
-                        <Image src={row.Image} alt={row.Title} className="w-10"/>
+                        <Image 
+                        width={50}
+                        height={50}
+                        src={row.Image} alt={row.Title} className="w-10"/>
                       </td>
                       <td className="first:text-left text-sm text-darkColor font-medium text-center py-2">
                         {row.Title}
