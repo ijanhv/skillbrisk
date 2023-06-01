@@ -2,22 +2,23 @@ import gigModel from "../models/gig.model.js";
 import Gig from "../models/gig.model.js";
 import createError from "../utils/error.js";
 
+
 export const createGig = async (req, res, next) => {
-  if (!req.isSeller)
-    return next(createError(403, "Only sellers can create a gig"));
-  const newGig = new Gig({
-    user: req.userId,
-    ...req.body,
-  });
-
-  try {
-    const savedGig = await newGig.save();
-    res.status(201).json(savedGig);
-  } catch (error) {
-    next(error);
-  }
-};
-
+    if (!req.isSeller)
+      return next(createError(403, "Only sellers can create a gig!"));
+  
+    const newGig = new Gig({
+      userId: req.userId,
+      ...req.body,
+    });
+  
+    try {
+      const savedGig = await newGig.save();
+      res.status(201).json(savedGig);
+    } catch (err) {
+      next(err);
+    }
+  };
 export const getGig = async (req, res, next) => {
   try {
     const gig = await Gig.findById(req.params.id);

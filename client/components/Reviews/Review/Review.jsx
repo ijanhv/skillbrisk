@@ -9,6 +9,8 @@ const Review = () => {
     <div className="flex items-start justify-start gap-4">
       <div className="w-10 h-10 border bg-gray-300 rounded-full flex items-center justify-center text-base text-gray-500 uppercase font-semibold">
         <Image
+          height={40}
+          width={40}
           src="https://pps.whatsapp.net/v/t61.24694-24/315778951_158251616960791_2241025532022843406_n.jpg?ccb=11-4&oh=01_AdQ0qmM5JKr0zGinAAZUYOFjrhIekykBbJd8z19zOXWLAQ&oe=6446C130"
           alt="pp"
           className="w-full h-full object-cover rounded-full"
