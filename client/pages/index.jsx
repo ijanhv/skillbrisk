@@ -25,8 +25,8 @@ const Home = () => {
               distance={500}
               text="Popular professional services"
             >
-              {cards.map((item) => (
-                <SingleCard key={item._id} item={item} />
+              {cards.map((item, i) => (
+                <SingleCard key={i} item={item} />
               ))}
       </Slides>
       <Features />

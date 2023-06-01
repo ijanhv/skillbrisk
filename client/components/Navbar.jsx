@@ -9,6 +9,8 @@ import { TfiWorld } from "react-icons/tfi";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { FiChevronRight } from "react-icons/fi";
 import Image from "next/image";
+import newRequest from "@/utils/newRequest";
+import dynamic from "next/dynamic";
 
 const Navbar = () => {
   const [navBackground, setNavBackground] = useState("");
@@ -40,13 +42,19 @@ const Navbar = () => {
     "AI Services",
   ];
 
-
-
   const toggleMenu = () => {
     setShowMenu(!showMenu);
   };
 
-
+  const handleLogout = async () => { 
+    try {
+      await newRequest.post("/auth/logout");
+      localStorage.removeItem("currentUser", null);
+      router.reload() 
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
   useEffect(() => {
@@ -209,12 +217,12 @@ const Navbar = () => {
                       >
                         Messages
                       </Link>
-                      <div
-                        // onClick={handleLogout}
+                      <button
+                        onClick={handleLogout}
                         className="cursor-pointer w-full text-sm text-darkColor"
                       >
                         Logout
-                      </div>
+                      </button>
                     </div>
                   </div>
                 )}
@@ -230,7 +238,7 @@ const Navbar = () => {
                   Sign in
                 </div>
                 <Link
-                  href="/join"
+                  href="/register"
                   className={`border py-2 px-5 rounded hover:bg-primary hover:border-primary hover:text-white transition-all duration-300 text-sm font-semibold ${
                     active ? "text-primary border-primary" : ""
                   }`}
@@ -277,4 +285,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default dynamic(() => Promise.resolve(Navbar), { ssr: false });

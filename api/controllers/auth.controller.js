@@ -30,7 +30,7 @@ export const login = async (req, res, next) => {
         const token = jwt.sign({ 
             id: user._id,
             isSeller: user.isSeller
-        }, process.env.JWT_KEY
+        },  process.env.JWT_KEY
         )
         
         const { password, ...info } = user._doc
@@ -44,10 +44,16 @@ export const login = async (req, res, next) => {
 }
 
 export const logout = (req, res) => {
-    res.clearCookie('accessToken', {
-        sameSite: 'none',
-        secure: true
-    })
-    .status(200)
-    .send("Logged out")
+    try {
+        res.clearCookie('accessToken', {
+            sameSite: 'none',
+            secure: true
+        })
+        .status(200)
+        .send("Logged out")
+        debugger
+    } catch (error) {
+        console.log(error)
+    }
+     
 }

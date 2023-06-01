@@ -92,7 +92,7 @@ const AddGig = () => {
                     </div>
                   ) : (
                     <>
-                      <p>Upload Cover Image</p>
+                      <h1>Upload Cover Image</h1>
                       <BsUpload size={20} />
                       <label
                         htmlFor="cover"
@@ -122,7 +122,7 @@ const AddGig = () => {
                 />
                 {files.length === 0 ? (
                   <div className="flex justify-center items-center flex-col gap-3 w-full border h-[136px] rounded-md text-sm text-gray-600 border-gray-300">
-                    <p>Upload an Image</p>
+                    <h1>Upload an Image</h1>
                     <BsUpload size={20} />
                     <label
                       htmlFor="images"

@@ -28,18 +28,32 @@ const Slides = ({ children, rowId, text, distance }) => {
     <section className="py-10">
       <div className="contain">
         <div className="flex flex-col items-start justify-start gap-4 w-full">
-          <h2 className="text-xl md:text-3xl font-bold text-darkColor">{text}</h2>
+          <h2 className="text-xl md:text-3xl font-bold text-darkColor">
+            {text}
+          </h2>
           <div className="relative flex items-center group w-full">
             <MdChevronLeft
               onClick={slideLeft}
               size={40}
               className="bg-white rounded-full absolute opacity-50 hover:opacity-100 cursor-pointer z-10 hidden group-hover:block"
             />
-             <div id={"slider" + rowId}
-              style={{ WebkitOverflowScrolling: "touch" }}
-             className="w-full h-full overflow-x-scroll whitespace-nowrap relative">
-                {children}
-              </div>
+                <div
+              id={"slider" + rowId}
+              style={{ WebkitOverflowScrolling: "touch", overflowX: "scroll" }}
+              className="w-full h-full flex relative"
+            >
+              {children.map((child, index) => (
+                <div key={index} className="flex-none">
+                  {child}
+                </div>
+              ))}
+            </div>
+
+            {/* <div id={"slider" + rowId} style={{ WebkitOverflowScrolling: "touch" }} className="w-full h-full overflow-x-scroll whitespace-nowrap relative">
+  {children.map((child, index) => (
+    <div key={index}>{child}</div>
+  ))}
+</div> */}
             <MdChevronRight
               onClick={slideRight}
               size={40}
@@ -49,10 +63,10 @@ const Slides = ({ children, rowId, text, distance }) => {
         </div>
       </div>
       <style jsx>{`
-    #slider${rowId}::-webkit-scrollbar {
-      display: none; // hide the scrollbar
-    }
-  `}</style>
+        #slider${rowId}::-webkit-scrollbar {
+          display: none; // hide the scrollbar
+        }
+      `}</style>
     </section>
   );
 };

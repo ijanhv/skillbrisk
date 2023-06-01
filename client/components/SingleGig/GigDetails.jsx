@@ -32,6 +32,8 @@ const GigDetails = ({ }) => {
       <div className="flex items-center justify-start gap-3 w-full">
         <div className="flex items-center justify-start gap-3">
           <Image
+            width={32}
+            height={32}
             src="https://static.wixstatic.com/media/ea6ac8_b6b0cbe25615488e855f515846354dda~mv2.jpg/v1/fill/w_640,h_420,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/ea6ac8_b6b0cbe25615488e855f515846354dda~mv2.jpg"
             alt="website"
             className="w-8 h-8 border rounded-full"
@@ -75,6 +77,8 @@ const GigDetails = ({ }) => {
                 <Image
                   src={item}
                   alt={item}
+                  height={500}
+                  width={700}
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -93,6 +97,8 @@ const GigDetails = ({ }) => {
         </h2>
         <div className="flex items-start justify-start gap-3 w-full">
           <Image
+            width={80}
+            height={80}
             src="https://help.apple.com/assets/63B87829CE32D578D65A85E4/63B8782ACE32D578D65A85EB/en_US/dbb0631358aad57b8b57484c2a476c7e.png"
             alt=""
             className="w-20 h-20 border rounded-full"
