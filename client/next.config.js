@@ -19,7 +19,10 @@ const nextConfig = {
       "media.istockphoto.com",
       "i.insider.com",
       "help.apple.com",
-      "pps.whatsapp.net"
+      "pps.whatsapp.net",
+      "www.write-right.in",
+      "blog.logomyway.com",
+      "hackernoon.com"
    
 
     ],

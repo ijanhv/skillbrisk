@@ -4,32 +4,30 @@ import { AiOutlineClockCircle } from 'react-icons/ai'
 import { BsCheckLg } from 'react-icons/bs'
 import Link from 'next/link'
 
-const GigOrder = () => {
+const GigOrder = ({ data }) => {
   return (
     <div className="w-full bg-white border p-4 flex flex-col gap-4 items-start justify-start rounded">
       <div className="flex items-center justify-between gap-2 w-full">
         <h2 className="text-gray-800 text-sm font-bold">    
-        Gig Title
+        {data?.title}
         </h2>
-        <p className="text-base font-normal">$ 5</p>
+        <p className="text-base font-normal">$ {data?.price}</p>
       </div>
       <p className="text-sm font-medium text-darkColor">
-        This is a short description of the gig. This is a short description of the
-        gig. This is a short description of the gig. This is a short description
-        of the gig. This is a short description of the gig. This is a short    
+        {data?.desc}   
     </p>
       <div className="flex items-center justify-between gap-2 w-full">
         <div className="flex items-center justify-start gap-2 text-sm text-darkColor font-semibold">
           <AiOutlineClockCircle />
-          <span>10 Days Delivery</span>
+          <span>{data?.deliveryTime} Days Delivery</span>
         </div>
         <div className="flex items-center justify-start gap-2 text-sm text-darkColor font-semibold">
           <TfiReload />
-          <span>5 Revisions</span>
+          <span>{data?.revisionNumber} Revisions</span>
         </div>
       </div>
       <div className="flex flex-col gap-1 items-start justify-start w-full">
-        {/* {data.features.map((item, i) => (
+        {data?.features.map((item, i) => (
           <div
             key={i}
             className="flex items-center justify-start gap-2 text-sm text-darkColor/70 font-semibold"
@@ -37,7 +35,7 @@ const GigOrder = () => {
             <BsCheckLg className="text-primary" />
             <span>{item}</span>
           </div>
-        ))} */}
+        ))}
         <div
             className="flex items-center justify-start gap-2 text-sm text-darkColor/70 font-semibold"
           >
