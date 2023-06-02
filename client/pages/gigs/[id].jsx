@@ -49,12 +49,16 @@ const GigInfo = () => {
              <Image className=" "
              width={350}
              height={350}
+             alt="Loading...."
              src="https://hackernoon.com/images/0*4Gzjgh9Y7Gu8KEtZ.gif"
              />
              </div>
              </>
             ) : error ? (
-              <Image width={500} height={500} src={oops} />
+              <Image 
+              
+              width={500} height={500} src={oops}  
+              alt="Something went wrong!"/>
             ) : (
               <GigDetails data={data} userData={userData} />
             )}

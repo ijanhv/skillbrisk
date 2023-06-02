@@ -143,7 +143,7 @@ const Gigs = ({ item }) => {
                 : error
                 ? "Something went wrong!"
                 : data?.map((item, i) => (
-                    <div>
+                    <div key={i}>
                       <GigCard key={item._id} item={item} />
                     </div>
                   ))}

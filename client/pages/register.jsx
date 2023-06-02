@@ -5,6 +5,7 @@ import upload from "@/utils/upload";
 import React, { useState } from "react";
 import { BsUpload } from "react-icons/bs";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Register = () => {
   const router = useRouter();
@@ -129,7 +130,9 @@ const Register = () => {
                     </label>
                     {file && (
                       <div>
-                        <img
+                        <Image
+                          height={100}
+                          width={100}
                           src={file}
                           alt="Uploaded Image"
                           className="w-32 h-32"
