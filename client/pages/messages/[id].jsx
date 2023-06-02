@@ -100,7 +100,9 @@ const Message = () => {
                         }`}
                       >
                         <Image
-                          src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/c51dbf5c160dac9bd067442911e65d16-1626181910196/Miscellaneous_2x.png"
+                            width={50}
+                            height={50}
+                              src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/generic_asset/asset/c51dbf5c160dac9bd067442911e65d16-1626181910196/Miscellaneous_2x.png"
                           alt="sender_img"
                           className="w-10 h-10 object-cover rounded-full border"
                         />
