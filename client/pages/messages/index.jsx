@@ -75,7 +75,7 @@ const Messages = () => {
 
 
   const handleRead = (id) => {
-    mutation.mutate(id);
+    mutate.mutate(id);
   }
 
   return (

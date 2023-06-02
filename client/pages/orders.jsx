@@ -3,6 +3,7 @@ import newRequest from "@/utils/newRequest";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { BsTrash } from "react-icons/bs";
 import { MdMail } from "react-icons/md";
@@ -72,6 +73,26 @@ const MyOrders = () => {
       }),
   });
   console.log(data);
+
+  const router = useRouter();
+
+  const handleContact = async (order) => {
+    const sellerId = order.sellerId;
+    const buyerId = order.buyerId;
+    const id = sellerId + buyerId;
+
+    try {
+      const res = await newRequest.get(`/conversations/single/${id}`);
+      router.push(`/message/${res.data.id}`);
+    } catch (err) {
+      if (err.response.status === 404) {
+        const res = await newRequest.post(`/conversations`, {
+          to: currentUser.seller ? buyerId : sellerId,
+        });
+        router.push(`/message/${res.data.id}`);
+      }
+    }
+  }; 
   return (
     <Layout>
       <main className="py-40">
@@ -131,7 +152,9 @@ const MyOrders = () => {
                         {row.buyerId.substr(0, 10)}...
                       </td>
                       <td className="first:text-left text-sm text-darkColor font-medium text-center py-2">
-                        <button className="bg-blue-600 rounded-full text-white p-1 hover:text-gray-300 text-xl font-bold">
+                        <button 
+                        onClick={() => handleContact(row)}
+                        className="bg-blue-600 rounded-full text-white p-1 hover:text-gray-300 text-xl font-bold">
                           <MdMail />
                         </button>
                       </td>

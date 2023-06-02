@@ -5,6 +5,7 @@ import { BsCheckLg } from 'react-icons/bs'
 import Link from 'next/link'
 
 const GigOrder = ({ data }) => {
+  console.log('gigorder', data);
   return (
     <div className="w-full bg-white border p-4 flex flex-col gap-4 items-start justify-start rounded">
       <div className="flex items-center justify-between gap-2 w-full">
@@ -46,7 +47,7 @@ const GigOrder = ({ data }) => {
             </span>
           </div>
       </div>
-      <Link href="/pay" className="w-full">
+      <Link href={`/pay/${data?._id}`} className="w-full">
         <button className="w-full h-10 rounded bg-primary/95 text-white hover:bg-primary outline-none">
           Continue
         </button>

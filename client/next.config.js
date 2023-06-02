@@ -22,7 +22,9 @@ const nextConfig = {
       "pps.whatsapp.net",
       "www.write-right.in",
       "blog.logomyway.com",
-      "hackernoon.com"
+      "hackernoon.com",
+      "cdni.iconscout.com",
+      "cdni.iconscout.com"
    
 
     ],
